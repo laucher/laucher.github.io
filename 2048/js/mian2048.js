@@ -155,7 +155,7 @@ function isGameOver() {
 }
 
 function showGameOver() {
-    var $message=$("<div class='gameover'><div class='gameover-message'>胜败乃兵家常事，少侠请重新来过~</div></div>");
+    var $message=$("<div class='gameover'><div class='gameover-message'><p>胜败乃兵家常事，</p><p>少侠请重新来过~</p></div></div>");
     $("#grid-container").append($message);
 }
 
@@ -334,7 +334,7 @@ $(document).on("keyup", function(event) {
     // if (lock) {
     //     return;
     // }
-    let code = event.keyCode;
+    var code = event.keyCode;
     lock = true;
     switch (code) {
         case 37:
