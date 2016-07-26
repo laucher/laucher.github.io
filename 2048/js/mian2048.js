@@ -92,17 +92,26 @@ function updataBoardView() {
                     "backgroundColor": getNumberBackgroundColor(board[i][j]),
                     "color": getNumberColor(board[i][j])
                 });
-                theNumberCell.text(board[i][j]);
 
+                if (board[i][j] > 1000) {
+                    theNumberCell.css({
+                        "line-height": cellSideLength + "px",
+                        "font-size": 0.4 * cellSideLength + "px"
+                    });
+                } else {
+                    theNumberCell.css({
+                        "line-height": cellSideLength + "px",
+                        "font-size": 0.6 * cellSideLength + "px"
+                    });
+                }
+                theNumberCell.text(board[i][j]);
             }
+
+
             hasConflicted[i][j] = false;
 
         }
     }
-    $(".number-cell").css({
-        "line-height": cellSideLength + "px",
-        "font-size": 0.6 * cellSideLength + "px"
-    });
     lock = false;
 }
 
@@ -155,7 +164,7 @@ function isGameOver() {
 }
 
 function showGameOver() {
-    var $message=$("<div class='gameover'><div class='gameover-message'><p>胜败乃兵家常事，</p><p>少侠请重新来过~</p></div></div>");
+    var $message = $("<div class='gameover'><div class='gameover-message'><p>胜败乃兵家常事，</p><p>少侠请重新来过~</p></div></div>");
     $("#grid-container").append($message);
 }
 
@@ -380,8 +389,8 @@ document.addEventListener("touchend", function(event) {
 
     var deltaX = endx - startx;
     var deltaY = endy - starty;
-    if(Math.abs(deltaX)<0.1*documentWidth && Math.abs(deltaY)<0.1*documentWidth){
-      return;
+    if (Math.abs(deltaX) < 0.1 * documentWidth && Math.abs(deltaY) < 0.1 * documentWidth) {
+        return;
     }
 
     if (Math.abs(deltaX) >= Math.abs(deltaY)) {
@@ -416,7 +425,7 @@ document.addEventListener("touchend", function(event) {
 
     }
 });
-document.addEventListener("touchmove",function(event) {
+document.addEventListener("touchmove", function(event) {
     event.preventDefault();
 
 });
