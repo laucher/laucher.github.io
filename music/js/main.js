@@ -196,7 +196,7 @@ function disposeLyric(ssid, sid) {
 //简单获取一首歌词
 function setSimpleSong(channel) {
     let song = {};
-    $.get('http://api.jirengu.com/fm/getSong.php', {
+    $.get('//api.jirengu.com/fm/getSong.php', {
             channel: channel
         })
         .done(function(data) {
